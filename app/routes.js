@@ -23,9 +23,21 @@ module.exports = function(app, passport, db) {
 });   
 // show the COURSE RUN DOWN page (will also have our login links)
 
+app.get('/courseList', function(req, res) {
+  res.render('course-list.ejs');
+});  
+// show the COURSE RUN DOWN page (will also have our login links)
+
 app.get('/courseDetails', function(req, res) {
   res.render('course-details.ejs');
+}); 
+
+// get level 1 practice page (will also have our login links)
+
+app.get('/practiceOne', function(req, res) {
+  res.render('wishlist.ejs');
 });   
+
 // PROFILE SECTION ========================= course(?)
     app.get('/profile', isLoggedIn, function(req, res) {
         db.collection('messages').find().toArray((err, result) => {
